@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Question generator</title>
+  <link rel="icon" href="owl-1736292_640.webp" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  background-color: rgb(95, 124, 187);
+  }
+  
+  .logo img {
+  height: 40px; 
+  width: auto;  
+  }
+  nav {
+    display: flex;
+    gap: 20px;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+</style>
+  <header>
+    <div class="logo">
+        <img src="owl-1736292_640.webp" alt="Logo" />
+      </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="chatbot.html">Chat bot</a>
+      <a href="FAQ.html">FAQ</a>
+      <a href="aboutus.html">About us</a>
+    </nav>
+    <a href="signin.html">Sign In</a>
+  </header>
+</head>
+<body style="background-image:url(background.jpg); background-size:cover; background-repeat:no-repeat; display: flex; flex-direction: column; min-height: 100vh; margin-top:10px;padding:5px;"></body>
+<div class=" flex items-center justify-center min-h-screen p-4">
+  <div class="bg-white p-8 rounded-2xl shadow-md w-full max-w-2xl">
+   <div class="have"> <h2 class="text-2xl font-bold text-center mb-4 color">Have a question?</h2></div>
+    <p class="text-center text-gray-500 mb-6">Our support team will answer your questions instantly, making it quicker than ever.</p>
+
+    <div id="faq" class="space-y-4">
+      <!-- FAQ Item -->
+      <div class="border-b">
+        <button class="w-full text-left flex justify-between items-center py-3 font-medium faq-toggle">
+          What is RTQG?
+          <span class="text-xl">+</span>
+        </button>
+        <div class="hidden text-gray-600 pb-3">The Real-Time Question Generation (RTQG) system is designed to automate question generation from text, providing educators and learners with a flexible tool for improving comprehension.</div>
+      </div>
+
+      <div class="border-b">
+        <button class="w-full text-left flex justify-between items-center py-3 font-medium faq-toggle">
+          What are the benefits of using RTQG?
+          <span class="text-xl">+</span>
+        </button>
+        <div class="hidden text-gray-600 pb-3">It saves time, improves quiz quality, and supports multiple formats.The Real-Time Question Generation (RTQG) system aims to revolutionize the educational landscape by automating question creation using AI. By leveraging advanced machine learning models, the system ensures efficiency, accuracy, and scalability in question generation, ultimately enhancing the learning experience for students and educators.</div>
+      </div>
+      <div class="border-b">
+        <button class="w-full text-left flex justify-between items-center py-3 font-medium faq-toggle">
+          what kind of questions can i prepare?
+          <span class="text-xl">+</span>
+        </button>
+        <div class="hidden text-gray-600 pb-3">Questions are gathered from various domains, including:
+          Computer Science
+          Medical Science
+          Physics
+          Social Sciences
+          General Knowledge and more
+          </div>
+      </div>
+      <div class="border-b">
+        <button class="w-full text-left flex justify-between items-center py-3 font-medium faq-toggle">
+          is chatbot easy to use?
+          <span class="text-xl">+</span>
+        </button>
+        <div class="hidden text-gray-600 pb-3">One of the key features that make it easy to use is its user-friendly interface. The platform has been designed with simplicity in mind, ensuring that users can quickly understand and utilize its various features without any confusion. The layout is clean, well-organized, and visually appealing, allowing users to easily navigate through different sections and access the desired tools effortlessly.</div>
+      </div>
+      <div class="border-b">
+        <button class="w-full text-left flex justify-between items-center py-3 font-medium faq-toggle">
+        Is my data is safe with chatbot?
+          <span class="text-xl">+</span>
+        </button>
+        <div class="hidden text-gray-600 pb-3">Every file you have uploaded to our system is parsed to temporary cache and sent to our specifically trained AI model to create your questions. When your questions are created successfully cache is flushed and your document completely removed from the system. Quizbot.ai is a highly secure and reliable platform that places utmost importance on the safety and privacy of its users. Quizbot implemented stringent security measures to protect user data and ensure a safe user experience. Quizbot.ai follows industry-standard encryption protocols to safeguard all communication between users and the platform. This ensures that any data transmitted during interactions, such as personal information or answers to quiz questions, is encrypted and remains confidential.</div>
+      </div>
+     
+      <!-- Add more items as needed -->
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling;
+        content.classList.toggle('hidden');
+        const icon = btn.querySelector('span');
+        icon.textContent = content.classList.contains('hidden') ? '+' : '−';
+      });
+    });
+  </script>
+</body>
+</html>
