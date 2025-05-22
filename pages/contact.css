@@ -6,6 +6,7 @@ body {
   color: white;
 }
 
+
 /* Header */
 .header {
   display: flex;
@@ -161,15 +162,15 @@ body {
 }
 
 .contact-card .icon img {
-  width: 48px;
-  height: 48px;
+  width: 58px;
+  height: 58px;
   background-color: rgba(168, 85, 247, 0.1);
   border-radius: 12px;
   padding: 12px;
 }
 
 .contact-card h2 {
-  font-size: 26px;
+  font-size: 30px;
   margin: 12px 0;
   color: #f9f9f9;
 }
@@ -198,3 +199,125 @@ body {
 
 
 
+
+
+.contact-form-section {
+  background-color: #0b0210;
+  padding: 80px 40px;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  width: 89%;
+  margin-left: 3%;
+}
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  background: transparent;
+  border-radius: 20px;
+  gap: 40px;
+}
+
+.form-left {
+  flex: 1;
+  min-width: 300px;
+  color: white;
+}
+
+.form-left h4 {
+  color: #c084fc;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.form-left h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.form-left h1 span {
+  color: #c084fc;
+}
+
+.form-left p {
+  color: #cfcfcf;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.input-group label {
+  color: #aaa;
+  font-size: 12px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.input-group input,
+.input-group textarea {
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  font-size: 16px;
+  background-color: #fff;
+  color: #000;
+  font-family: inherit;
+}
+
+textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.submit-btn {
+  background: #a855f7;
+  color: white;
+  padding: 14px 32px;
+  font-weight: bold;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #9333ea;
+}
+
+.form-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 300px;
+}
+
+.form-right img {
+  max-width: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+  margin-left: 90px;
+}
