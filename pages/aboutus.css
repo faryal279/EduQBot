@@ -71,6 +71,10 @@ body {
   background-color: #9333ea;
 }
 
+
+
+
+
 /* Parallax Section */
 .parallax-section {
   position: relative;
@@ -83,8 +87,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 120%;
-  height: 120%;
+  width: 90%;
+  height: 100%;
   background-image: url('/icons/pngwing.com (1).png'); /* Replace with your actual path */
   background-size: cover;
   background-repeat: no-repeat;
@@ -138,7 +142,7 @@ body {
 }
 
 .team-card {
-  background-color: #12031C;
+  background-color: #1e052e;
   border-radius: 20px;
   padding: 32px 24px;
   width: 370px;
@@ -159,8 +163,9 @@ body {
 }
 
 .team-card h3 {
-  font-size: 22px;
+  font-size: 30px;
   font-weight: 700;
+  word-spacing: 3px;
   margin: 10px 0 6px;
 }
 
@@ -183,4 +188,10 @@ body {
   font-size: 15px;
   color: #cccccc;
   line-height: 1.6;
+}
+
+
+.team-card p {
+    color: #E7E7E7;
+    font-weight: 600;
 }
