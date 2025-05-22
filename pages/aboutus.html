@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scriptany-Inspired Hero</title>
+  <link rel="stylesheet" href="aboutus.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="/icons/owl.webp" alt="">
+      </div>
+      <nav class="navbar">
+        <a href="/index.html" class="active">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="#">Pages</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact Us</a>
+      </nav>
+      <a href="#" class="demo-btn">Demo</a>
+    </div>
+  </header>
+
+  
+  <!-- Parallax Background Section -->
+<section class="parallax-section">
+  <div class="parallax-bg"></div>
+  <div class="parallax-overlay-text">
+    <h1>Team</h1>
+  </div>
+</section>
+
+
+  <!-- Team Section -->
+  <section class="team-section">
+    <div class="team-container">
+      <div class="team-card">
+        <img src="/Team/maria.jpg" alt="John Carter">
+        <h3>John Carter</h3>
+        <p class="role">Chief Technology Officer</p>
+        <hr />
+        <p class="description">
+          Leads the development and continuous improvement of Scriptany’s core AI technology.
+        </p>
+      </div>
+      <div class="team-card">
+        <img src="/Team/maria.jpg" alt="Sophie Moore">
+        <h3>Sophie Moore</h3>
+        <p class="role">Lead AI Engineer</p>
+        <hr />
+        <p class="description">
+          Oversees the development team responsible for building and refining Scriptany’s AI algorithms.
+        </p>
+      </div>
+      <div class="team-card">
+        <img src="/Team/maria.jpg" alt="Matt Cannon">
+        <h3>Matt Cannon</h3>
+        <p class="role">Head of Content Marketing</p>
+        <hr />
+        <p class="description">
+          Leads the creation of informative and engaging content that showcases Scriptany’s capabilities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parallax JS -->
+  <script>
+    const section = document.querySelector('.parallax-section');
+    const bg = section.querySelector('.parallax-bg');
+
+    section.addEventListener('mousemove', (e) => {
+      const rect = section.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width - 0.5) * -30;
+      const y = ((e.clientY - rect.top) / rect.height - 0.5) * -30;
+      bg.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  </script>
+</body>
+</html>
