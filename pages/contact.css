@@ -1,0 +1,200 @@
+/* General */
+body {
+  margin: 0;
+  font-family: 'Satoshi', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #07010C;
+  color: white;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 23px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1350px;
+  background-color: white;
+  color: black;
+  padding: 24px 40px;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 95px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.logo img {
+  height: 66px;
+}
+
+.navbar {
+  display: flex;
+  gap: 42px;
+  font-size: 20px;
+}
+
+.navbar a {
+  color: black;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+.navbar a.active {
+  color: #a855f7;
+  font-weight: 600;
+}
+
+.demo-btn {
+  background-color: #a855f7;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.demo-btn:hover {
+  background-color: #9333ea;
+}
+
+
+
+
+
+/* Parallax Section */
+.parallax-section {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 100%;
+  background-image: url('/icons/pngwing.com\ \(1\).png'); /* Replace with your actual path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.1s ease-out;
+  pointer-events: none;
+  z-index: 0;
+
+  /* Dark overlay using gradient for edge fading */
+  mask-image: radial-gradient(circle at center, rgba(3,3,3,2) 30%, rgba(3,3,3,4) 100%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(3,3,3,4) 30%, rgba(3,3,3,0) 100%);
+
+  /* Optional: apply a dark filter */
+  filter: brightness(0.2) contrast(1.5) saturate(3.9);
+}
+
+.parallax-overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+}
+
+.parallax-overlay-text h1 {
+  font-size: 70px;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+
+
+
+
+/* Contact Section */
+.contact-options {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 80px 40px;
+  background-color: #0e0415;
+  border-radius: 24px;
+  margin: 40px auto;
+  max-width: 1350px;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  background-color: #12021b;
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+}
+
+.contact-card .icon {
+  margin-bottom: 20px;
+}
+
+.contact-card .icon img {
+  width: 48px;
+  height: 48px;
+  background-color: rgba(168, 85, 247, 0.1);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.contact-card h2 {
+  font-size: 26px;
+  margin: 12px 0;
+  color: #f9f9f9;
+}
+
+.contact-card p {
+  color: #cfcfcf;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.talk-btn {
+  display: inline-block;
+  background-color: #a855f7;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.talk-btn:hover {
+  background-color: #9333ea;
+}
+
+
+

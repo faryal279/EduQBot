@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scriptany-Inspired Hero</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="contact.css"/>
 </head>
 <body>
   <!-- Header -->
@@ -12,7 +12,7 @@
     <div class="nav-container">
       <div class="logo">
         
-        <img src="icons/owl.webp" alt="">
+        <img src="/icons/owl.webp" alt="">
       </div>
       <nav class="navbar">
         <a href="index.html" class="active">Home</a>
@@ -23,6 +23,51 @@
       <a href="#" class="demo-btn">Demo</a>
     </div>
   </header>
+
+  <section class="parallax-section">
+  <div class="parallax-bg"></div>
+  <div class="parallax-overlay-text">
+    <h1>Team</h1>
+  </div>
+</section>
+
+
+
+<section class="contact-options">
+  <div class="contact-card">
+    <div class="icon"><img src="/icons/sales-icon.svg" alt="Sales Icon" /></div>
+    <h2>Sales</h2>
+    <p>We are just a call away! Get in touch with our sales team.</p>
+    <a href="#" class="talk-btn">Talk To Us</a>
+  </div>
+  <div class="contact-card">
+    <div class="icon"><img src="/icons/chat-icon.svg" alt="Chat Icon" /></div>
+    <h2>Chat</h2>
+    <p>Our support team is available to answer any of your queries 24x7</p>
+    <a href="#" class="talk-btn">Talk To Us</a>
+  </div>
+  <div class="contact-card">
+    <div class="icon"><img src="/icons/partnership-icon.svg" alt="Partnership Icon" /></div>
+    <h2>Partnership</h2>
+    <p>Partner with us? Reach out and we'll explore all opportunities.</p>
+    <a href="#" class="talk-btn">Talk To Us</a>
+  </div>
+</section>
+
+
+
+
+ <script>
+    const section = document.querySelector('.parallax-section');
+    const bg = section.querySelector('.parallax-bg');
+
+    section.addEventListener('mousemove', (e) => {
+      const rect = section.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width - 0.5) * -30;
+      const y = ((e.clientY - rect.top) / rect.height - 0.5) * -30;
+      bg.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  </script>
 
   
 </body>
