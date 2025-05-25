@@ -1,0 +1,108 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  height: 100%;
+}
+
+/* Parallax Section */
+.parallax-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #07010C;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/icons/pngwing.com\ \(1\).png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.1s ease-out;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(circle at center, rgba(3,3,3,2) 30%, rgba(3,3,3,4) 100%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(3,3,3,4) 30%, rgba(3,3,3,0) 100%);
+  filter: brightness(0.2) contrast(1.5) saturate(3.9);
+}
+
+.form-wrapper {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+}
+
+.form-box {
+  background: rgb(30, 16, 16);
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.form-box h2 {
+  margin-bottom: 10px;
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+
+}
+
+.form-box p {
+  margin-bottom: 20px;
+  color: #555;
+  font-size: 16px;
+}
+
+.input-box {
+  margin-bottom: 20px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+button[type="submit"] {
+  background-color: #a855f7;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 999px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #9333ea;
+}
+
+.forgot {
+  display: block;
+  margin-top: 16px;
+  color: #555;
+  font-size: 14px;
+  text-decoration: none;
+}

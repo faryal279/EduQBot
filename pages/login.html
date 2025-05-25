@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | AI Generator</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <section class="parallax-section">
+    <div class="parallax-bg"></div>
+    <div class="form-wrapper">
+      <form class="form-box">
+        <h2>Hello!</h2>
+        <p>Sign Up to Get Started</p>
+
+        <div class="input-box">
+          <input type="email" placeholder="Email Address" required>
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit">Login</button>
+        <a href="#" class="forgot">Forgot Password</a>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const section = document.querySelector('.parallax-section');
+    const bg = section.querySelector('.parallax-bg');
+
+    section.addEventListener('mousemove', (e) => {
+      const rect = section.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width - 0.5) * -30;
+      const y = ((e.clientY - rect.top) / rect.height - 0.5) * -30;
+      bg.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  </script>
+</body>
+</html>
