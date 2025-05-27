@@ -8,6 +8,7 @@
 
 body, html {
   height: 100%;
+  background-color: #07010c;
 }
 
 /* Parallax Section */
@@ -15,22 +16,21 @@ body, html {
   position: relative;
   height: 100vh;
   overflow: hidden;
-  background-color: #07010C;
+  background-color: #07010c;
 }
 
 .parallax-bg {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/icons/pngwing.com\ \(1\).png');
+  background-image: url('/icons/pngwing.com (1).png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  transition: transform 0.1s ease-out;
   pointer-events: none;
   z-index: 0;
+  transition: transform 0.1s ease-out;
   mask-image: radial-gradient(circle at center, rgba(3,3,3,2) 30%, rgba(3,3,3,4) 100%);
   -webkit-mask-image: radial-gradient(circle at center, rgba(3,3,3,4) 30%, rgba(3,3,3,0) 100%);
   filter: brightness(0.2) contrast(1.5) saturate(3.9);
@@ -47,27 +47,32 @@ body, html {
 }
 
 .form-box {
-  background: rgb(30, 16, 16);
-  padding: 40px;
-  border-radius: 12px;
+  background: rgba(7, 1, 12, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 40px 45px;
+  border-radius: 20px;
   width: 100%;
   max-width: 400px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   text-align: center;
+  border: 1px solid #a855f7;
+  color: #ddd;
 }
 
-.form-box h2 {
-  margin-bottom: 10px;
-  font-size: 28px;
-  font-weight: 700;
-  color: white;
-
+.form-box h2 img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  object-fit: contain;
+  box-shadow: none;
 }
 
 .form-box p {
-  margin-bottom: 20px;
-  color: #555;
+  margin-bottom: 25px;
   font-size: 16px;
+  color: #bbb;
 }
 
 .input-box {
@@ -77,32 +82,71 @@ body, html {
 .input-box input {
   width: 100%;
   padding: 14px 20px;
-  border: 1px solid #ddd;
+  border: 1.5px solid #4b2993;
   border-radius: 999px;
-  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #eee;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
 
-button[type="submit"] {
-  background-color: #a855f7;
-  color: white;
+.input-box input::placeholder {
+  color: #999;
+}
+
+.input-box input:focus {
+  border-color: #a855f7;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.hero-btn {
+  display: inline-block;
+  background-color: #A855F7;
   border: none;
-  padding: 14px;
-  border-radius: 999px;
-  width: 100%;
-  font-size: 16px;
-  font-weight: bold;
+  border-radius: 40px;
+  padding: 15px 25px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3); /* subtle shadow in same tone */
+  text-align: center;
 }
 
-button[type="submit"]:hover {
-  background-color: #9333ea;
+.hero-btn:hover {
+  background-color: #9333EA; /* darker violet on hover */
+  transform: scale(1.03);
 }
+
 
 .forgot {
   display: block;
-  margin-top: 16px;
-  color: #555;
+  margin-top: 15px;
   font-size: 14px;
+  color: #bbb;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot:hover {
+  color: #a855f7;
+}
+
+.signup-link {
+  display: block;
+  margin-top: 15px;
+  color: #a855f7;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.signup-link:hover {
+  color: #9333ea;
 }

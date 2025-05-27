@@ -1,120 +1,163 @@
-body {
+/* Reset */
+* {
   margin: 0;
-  font-family: 'Satoshi', sans-serif;
-  background-color: #07010C;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  background-color: #07010c;
+  color: #ddd;
+}
+
+/* Parallax Background */
+.parallax-section {
+  position: relative;
   height: 100vh;
-}
-
-.auth-container {
-  display: flex;
-  width: 100%;
-  max-width: 1100px;
-  background: white;
-  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+  background-color: #07010c;
 }
 
-.auth-image {
-  flex: 1;
-  background-color: #f3ecff;
+.parallax-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/icons/pngwing.com (1).png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.1s ease-out;
+  mask-image: radial-gradient(circle at center, rgba(3,3,3,2) 30%, rgba(3,3,3,4) 100%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(3,3,3,4) 30%, rgba(3,3,3,0) 100%);
+  filter: brightness(0.15) contrast(1.7) saturate(3);
+}
+
+/* Center the form */
+.form-wrapper {
+  position: relative;
+  z-index: 2;
+  height: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  padding: 30px;
+  padding: 20px;
 }
 
-.auth-image img {
-  max-width: 100%;
-  height: auto;
-}
-
-.auth-form-box {
-  flex: 1;
-  padding: 60px 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: #1f152c;
-  color: white;
-}
-
-.auth-form-box h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-.auth-subtext {
-  font-size: 15px;
-  color: #ccc;
-  margin-bottom: 30px;
-}
-
-.auth-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.auth-form input {
-  padding: 14px 20px;
-  border-radius: 9999px;
-  border: none;
-  font-size: 15px;
-  background: #eee;
-  color: #000;
-}
-
-.auth-form button {
-  padding: 14px;
-  background-color: #a855f7;
-  border: none;
-  border-radius: 9999px;
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.auth-form button:hover {
-  background-color: #9333ea;
-}
-
-.auth-links {
-  text-align: right;
-  margin-top: 10px;
-}
-
-.auth-links a {
-  color: #a855f7;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-.auth-switch {
+/* Form container */
+.form-box {
+  background: #07010C;
+  padding: 50px 45px 45px 45px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  border: 1px solid #a855f7;
+  
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); /* soft dark shadow */
   text-align: center;
-  margin-top: 20px;
-  font-size: 14px;
+  color: #ddd;
 }
 
-.auth-switch a {
-  color: #a855f7;
-  text-decoration: none;
+/* Logo */
+.form-box h2 img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  box-shadow: none;
 }
 
-.input-row {
+/* Title */
+.form-box h2:nth-of-type(2) {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #d7c0ff;
+}
+
+/* Flex for first and last name */
+.name-row {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 25px;
 }
 
-.input-row input {
+/* Input container */
+.input-box {
+  position: relative;
   flex: 1;
+  margin-bottom: 25px;
 }
 
+/* Inputs with underline style */
+.input-box input {
+  width: 100%;
+  border: none;
+  border-bottom: 2.5px solid #666;
+  background: transparent;
+  padding: 12px 0 8px 0;
+  color: #ddd;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-box input:focus {
+  border-bottom-color: #a855f7;
+}
+
+/* Floating label */
+.input-box label {
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  font-size: 14px;
+  color: #999;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Move label up on focus or input */
+.input-box input:focus + label,
+.input-box input:not(:placeholder-shown) + label {
+  bottom: 34px;
+  font-size: 12px;
+  color: #a855f7;
+}
+
+/* Button style */
+button[type='submit'] {
+  width: 100%;
+  background: linear-gradient(90deg, #a855f7, #9333ea);
+  border: none;
+  border-radius: 40px;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+
+button[type='submit']:hover {
+  background: linear-gradient(90deg, #9333ea, #a855f7);
+}
+
+/* Login link below */
+.login-link {
+  display: block;
+  margin-top: 25px;
+  font-size: 15px;
+  color: #a855f7;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-link:hover {
+  color: #d7c0ff;
+}
