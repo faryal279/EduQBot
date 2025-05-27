@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Question Generator</title>
-  <link rel="stylesheet" href="faq.css">
+  <link rel="stylesheet" href="chatbot.css">
 </head>
 <body>
   <!-- Header -->
@@ -28,52 +28,34 @@
 <section class="parallax-section">
   <div class="parallax-bg"></div>
   <div class="parallax-overlay-text">
-    <h1>FAQ</h1>
+    <h1>ChatBot</h1>
   </div>
 </section>
 
 
-<!-- FAQ Section -->
-<section class="faq-section">
-  <div class="faq-container">
-    <h2>Frequently Asked Questions</h2>
+<!-- Question Generator Section -->
+<section class="generator-section">
+  <div class="generator-header">
+    <h2>AI Question Generator</h2>
+    <a href="history.html" class="history-btn">History</a>
+  </div>
 
-    <div class="faq-item">
-      <button class="faq-question">How do I get started?</button>
-      <div class="faq-answer">
-        <p>When you sign up, you'll start with the Free plan. To access more tools and features, upgrade to a paid membership anytime.</p>
-      </div>
+  <div class="generator-container">
+    <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+    
+    <div class="action-buttons">
+      <button id="generateBtn">Generate Questions</button>
+      <button id="downloadBtn">Download Response</button>
     </div>
 
-    <div class="faq-item">
-      <button class="faq-question">What is included in the Free Plan?</button>
-      <div class="faq-answer">
-        <p>The Free Plan includes access to basic tools and limited support. You can explore essential features without any cost.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">How do I cancel my membership?</button>
-      <div class="faq-answer">
-        <p>Go to your account settings and click on “Cancel Membership.” Follow the prompts to confirm cancellation.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">How do I transfer my membership?</button>
-      <div class="faq-answer">
-        <p>You can contact our support team to transfer your membership to a different email or user account.</p>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-question">What is the refund policy?</button>
-      <div class="faq-answer">
-        <p>We offer a 7-day refund window from your subscription start date. Please contact support for refund requests.</p>
-      </div>
+    <div id="outputContainer" class="output-box">
+      <p class="placeholder-text">Generated questions will appear here...</p>
     </div>
   </div>
 </section>
+
+
+
 
 
 

@@ -152,7 +152,7 @@ button[type='submit']:hover {
   display: block;
   margin-top: 25px;
   font-size: 15px;
-  color: #a855f7;
+  color: white;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.3s ease;

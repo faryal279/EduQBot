@@ -1,0 +1,223 @@
+
+  body {
+    margin: 0;
+    font-family: 'Satoshi', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #07010C;
+    color: white;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: center;
+    padding: 23px 0;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1350px;
+    background-color: white;
+    color: black;
+    padding: 24px 40px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 95px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .logo img {
+    height: 66px;
+  }
+
+  .navbar {
+    display: flex;
+    gap: 42px;
+    font-size: 20px;
+  }
+
+  .navbar a {
+    color: black;
+    text-decoration: none;
+    font-weight: normal;
+  }
+
+  .navbar a.active {
+    color: #a855f7;
+    font-weight: 600;
+  }
+
+  .demo-btn {
+    background-color: #a855f7;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: background 0.3s ease;
+  }
+
+  .demo-btn:hover {
+    background-color: #9333ea;
+  }
+
+  /* Parallax Section */
+  .parallax-section {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    z-index: 1;
+    background-color: #1c0128;
+  }
+
+  .parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 100%;
+    background-image: url('/icons/pngwing.com (1).png'); /* Replace with your actual path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.1s ease-out;
+    pointer-events: none;
+    z-index: 0;
+
+    mask-image: radial-gradient(circle at center, rgba(3,3,3,2) 30%, rgba(3,3,3,4) 100%);
+    -webkit-mask-image: radial-gradient(circle at center, rgba(3,3,3,4) 30%, rgba(3,3,3,0) 100%);
+    filter: brightness(0.2) contrast(1.5) saturate(3.9);
+  }
+
+  .parallax-overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+  }
+
+  .parallax-overlay-text h1 {
+    font-size: 70px;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  }
+
+  /* History Section */
+  .faq-section {
+    background-color: #07010C;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .faq-container h2 {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #d5acfe;
+  }
+
+  /* Each history item */
+  .faq-item {
+    background-color: #14021c;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 4px 16px rgba(168, 85, 247, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .faq-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.2);
+  }
+
+  /* Question button */
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px 24px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .faq-question.active {
+    color: #a855f7;
+  }
+
+  /* Answer panel */
+.faq-answer {
+  max-height: 250px;       /* height for answer box */
+  padding: 12px 24px;
+  background-color: #1c0b29;
+  color: #ccc;
+  font-size: 16px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;  /* stack button and text vertically */
+  gap: 12px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+  .faq-answer.show {
+    padding: 16px 24px 24px;
+    max-height: 500px; /* enough for content */
+  }
+
+.answer-text {
+  flex: 1;
+  overflow-y: auto;       /* scroll only the text container */
+  max-height: 180px;
+  padding-right: 8px;     /* optional padding */
+  white-space: pre-wrap;
+}
+
+
+  .answer-text {
+    flex: 1;
+    padding-right: 20px;
+  }
+
+.download-btn {
+  align-self: flex-start; /* align button to left */
+  background-color: #a855f7;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.3s ease;
+}
+.download-btn:hover {
+  background-color: #9333ea;
+}

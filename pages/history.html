@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chatbot History</title>
+<link rel="stylesheet" href="history.css">
+
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="/icons/owl.webp" alt="Logo" />
+      </div>
+      <nav class="navbar">
+        <a href="/index.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="/pages/faq.html">FAQ</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+      <a href="#" class="demo-btn">Demo</a>
+    </div>
+  </header>
+
+  <!-- Parallax Background Section -->
+  <section class="parallax-section">
+    <div class="parallax-bg"></div>
+    <div class="parallax-overlay-text">
+      <h1>Chatbot History</h1>
+    </div>
+  </section>
+
+  <!-- History Section -->
+  <section class="faq-section">
+    <div class="faq-container">
+      <h2>Past Generated Questions & Responses</h2>
+
+      
+
+      <div class="faq-item">
+        <button class="faq-question">Summarize the author’s opinion in your own words.</button>
+        <div class="faq-answer">
+          <div class="answer-text">The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment. </div>
+          <button class="download-btn" onclick="downloadText('The author believes that modern technology should be used responsibly to improve society without harming the environment.', 'response-2.txt')">Download</button>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Summarize the author’s opinion in your own words.</button>
+        <div class="faq-answer">
+          <div class="answer-text">The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment. </div>
+          <button class="download-btn" onclick="downloadText('The author believes that modern technology should be used responsibly to improve society without harming the environment.', 'response-2.txt')">Download</button>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Summarize the author’s opinion in your own words.</button>
+        <div class="faq-answer">
+          <div class="answer-text">The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment. </div>
+          <button class="download-btn" onclick="downloadText('The author believes that modern technology should be used responsibly to improve society without harming the environment.', 'response-2.txt')">Download</button>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Summarize the author’s opinion in your own words.</button>
+        <div class="faq-answer">
+          <div class="answer-text">The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment.The author believes that modern technology should be used responsibly to improve society without harming the environment. </div>
+          <button class="download-btn" onclick="downloadText('The author believes that modern technology should be used responsibly to improve society without harming the environment.', 'response-2.txt')">Download</button>
+        </div>
+      </div>
+
+      
+
+    </div>
+  </section>
+
+  <script>
+    // Accordion toggle logic
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const answer = btn.nextElementSibling;
+        const isVisible = answer.classList.contains('show');
+
+        // Close all answers
+        document.querySelectorAll('.faq-answer').forEach(ans => {
+          ans.classList.remove('show');
+          ans.previousElementSibling.classList.remove('active');
+        });
+
+        // Toggle clicked
+        if (!isVisible) {
+          answer.classList.add('show');
+          btn.classList.add('active');
+        }
+      });
+    });
+
+    // Download function for text content
+    function downloadText(text, filename) {
+      const blob = new Blob([text], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+
+      setTimeout(() => {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 0);
+    }
+  </script>
+</body>
+</html>
