@@ -5,22 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Question Generator</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .username {
+      color: #a855f7;
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .logout-btn {
+      background-color: #ff4444;
+    }
+    .logout-btn:hover {
+      background-color: #cc3333;
+    }
+    .auth-buttons {
+      display: none;
+    }
+    .auth-buttons.show {
+      display: flex;
+      gap: 20px;
+    }
+    .login-btn {
+      background-color: #a855f7;
+    }
+    .login-btn:hover {
+      background-color: #9333ea;
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
   <header class="header">
     <div class="nav-container">
       <div class="logo">
-        
         <img src="icons/owl.webp" alt="">
       </div>
       <nav class="navbar">
         <a href="index.html" class="active">Home</a>
         <a href="./pages/aboutus.html">About Us</a>
-        <a href="/pages/faq.html">FAQ</a>
-        <a href="/pages/contact.html">Contact Us</a>
+        <a href="./pages/faq.html">FAQ</a>
+        <a href="./pages/contact.html">Contact Us</a>
       </nav>
-      <a href="/pages/chatbot.html" class="demo-btn">Demo</a>
+      <div class="user-info" style="display: none;">
+        <span id="userFirstName" class="username">Welcome, </span>
+        <a href="pages/logout.php" class="demo-btn logout-btn">Logout</a>
+      </div>
+      <div class="auth-buttons">
+        <a href="./pages/login.php" class="demo-btn login-btn">Login</a>
+        <a href="./pages/signup.html" class="demo-btn">Sign Up</a>
+      </div>
     </div>
   </header>
 
@@ -32,12 +69,61 @@
       Employing The <span class="highlight">Power</span> Of AI
     </h1>
     <p class="hero-subtext">
-      Unlock extraordinary writing capabilities with an AI writing companion. With bra simple click, our AI assists in continued writing, idea expression, and more.
+      Unlock extraordinary writing capabilities with an AI writing companion. With a simple click, our AI assists in continued writing, idea expression, and more.
     </p>
     <form class="hero-form">
-      <a href="/pages/login.html" class="demo-btn">Try It Now!</a>
-
+      <a href="./pages/chatbot.html" class="demo-btn" id="tryNowBtn">Try It Now!</a>
     </form>
   </section>
+
+  <script>
+    // Check if user is logged in and display name
+    window.onload = function() {
+      const userInfo = document.querySelector('.user-info');
+      const authButtons = document.querySelector('.auth-buttons');
+      const tryNowBtn = document.getElementById('tryNowBtn');
+
+      // Create a function to get cookie value by name
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
+
+      // Get the PHP session ID
+      const sessionId = getCookie('PHPSESSID');
+      
+      if (!sessionId) {
+        // Show login/signup buttons for non-logged in users
+        userInfo.style.display = 'none';
+        authButtons.classList.add('show');
+        // Redirect Try It Now button to login
+        tryNowBtn.href = './pages/login.php';
+      } else {
+        // Fetch user data from get_user_info.php
+        fetch('./pages/get_user_info.php')
+          .then(response => response.json())
+          .then(data => {
+            if (data.loggedin) {
+              userInfo.style.display = 'flex';
+              authButtons.classList.remove('show');
+              document.getElementById('userFirstName').textContent = 'Welcome, ' + data.fullname;
+              // Keep Try It Now button pointing to chatbot for logged in users
+              tryNowBtn.href = './pages/chatbot.html';
+            } else {
+              userInfo.style.display = 'none';
+              authButtons.classList.add('show');
+              tryNowBtn.href = './pages/login.php';
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            userInfo.style.display = 'none';
+            authButtons.classList.add('show');
+            tryNowBtn.href = './pages/login.php';
+          });
+      }
+    };
+  </script>
 </body>
 </html>

@@ -3,23 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Question Generator</title>
+  <title>FAQ | Question Generator</title>
   <link rel="stylesheet" href="faq.css">
+  <style>
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .username {
+      color: #a855f7;
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .logout-btn {
+      background-color: #ff4444;
+    }
+    .logout-btn:hover {
+      background-color: #cc3333;
+    }
+    .auth-buttons {
+      display: none;
+    }
+    .auth-buttons.show {
+      display: flex;
+      gap: 20px;
+    }
+    .login-btn {
+      background-color: #a855f7;
+    }
+    .login-btn:hover {
+      background-color: #9333ea;
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
   <header class="header">
     <div class="nav-container">
       <div class="logo">
-        <img src="/icons/owl.webp" alt="">
+        <img src="../icons/owl.webp" alt="">
       </div>
       <nav class="navbar">
-        <a href="/index.html" class="active">Home</a>
-        <a href="aboutus.html">About Us</a>
-        <a href="/pages/faq.html">FAQ</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="../index.html">Home</a>
+        <a href="../pages/aboutus.html">About Us</a>
+        <a href="../pages/faq.html" class="active">FAQ</a>
+        <a href="../pages/contact.html">Contact Us</a>
       </nav>
-      <a href="#" class="demo-btn">Demo</a>
+      <div class="user-info" style="display: none;">
+        <span id="userFirstName" class="username">Welcome, </span>
+        <a href="logout.php" class="demo-btn logout-btn">Logout</a>
+      </div>
+      <div class="auth-buttons">
+        <a href="login.php" class="demo-btn login-btn">Login</a>
+        <a href="signup.html" class="demo-btn">Sign Up</a>
+      </div>
     </div>
   </header>
 
@@ -55,7 +93,7 @@
     <div class="faq-item">
       <button class="faq-question">How do I cancel my membership?</button>
       <div class="faq-answer">
-        <p>Go to your account settings and click on “Cancel Membership.” Follow the prompts to confirm cancellation.</p>
+        <p>Go to your account settings and click on "Cancel Membership." Follow the prompts to confirm cancellation.</p>
       </div>
     </div>
 
@@ -115,5 +153,6 @@
   });
 
   </script>
+  <script src="../js/header.js"></script>
 </body>
 </html>

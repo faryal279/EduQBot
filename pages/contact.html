@@ -3,31 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Question Generator</title>
-  <link rel="stylesheet" href="contact.css"/>
+  <title>Contact Us | Question Generator</title>
+  <link rel="stylesheet" href="contact.css">
+  <style>
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .username {
+      color: #a855f7;
+      font-weight: 600;
+      font-size: 18px;
+    }
+    .logout-btn {
+      background-color: #ff4444;
+    }
+    .logout-btn:hover {
+      background-color: #cc3333;
+    }
+    .auth-buttons {
+      display: none;
+    }
+    .auth-buttons.show {
+      display: flex;
+      gap: 20px;
+    }
+    .login-btn {
+      background-color: #a855f7;
+    }
+    .login-btn:hover {
+      background-color: #9333ea;
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
   <header class="header">
     <div class="nav-container">
       <div class="logo">
-        
-        <img src="/icons/owl.webp" alt="">
+        <img src="../icons/owl.webp" alt="">
       </div>
       <nav class="navbar">
-        <a href="/index.html" class="active">Home</a>
-        <a href="aboutus.html">About Us</a>
-        <a href="/pages/faq.html">FAQ</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="../index.html">Home</a>
+        <a href="../pages/aboutus.html">About Us</a>
+        <a href="../pages/faq.html">FAQ</a>
+        <a href="../pages/contact.html" class="active">Contact Us</a>
       </nav>
-      <a href="#" class="demo-btn">Demo</a>
+      <div class="user-info" style="display: none;">
+        <span id="userFirstName" class="username">Welcome, </span>
+        <a href="logout.php" class="demo-btn logout-btn">Logout</a>
+      </div>
+      <div class="auth-buttons">
+        <a href="login.php" class="demo-btn login-btn">Login</a>
+        <a href="signup.html" class="demo-btn">Sign Up</a>
+      </div>
     </div>
   </header>
 
   <section class="parallax-section">
   <div class="parallax-bg"></div>
   <div class="parallax-overlay-text">
-    <h1>Team</h1>
+    <h1>Contact us!</h1>
   </div>
 </section>
 
@@ -35,19 +72,19 @@
 
 <section class="contact-options">
     <div class="contact-card">
-      <div class="icon"><img src="/icons/whatsapp.png" alt="Partnership Icon" /></div>
+      <div class="icon"><img src="../icons/whatsapp.png" alt="Partnership Icon" /></div>
       <h2>Whatsapp</h2>
       <p>Reach out and we'll explore all opportunities.</p>
       <a href="#" class="talk-btn">Talk To Us</a>
     </div>
   <div class="contact-card">
-    <div class="icon"><img src="/icons/instagram.png" alt="Sales Icon" /></div>
+    <div class="icon"><img src="../icons/instagram.png" alt="Sales Icon" /></div>
     <h2>Instagram</h2>
     <p>Reach out and we'll explore all opportunities.</p>
     <a href="#" class="talk-btn">Talk To Us</a>
   </div>
   <div class="contact-card">
-    <div class="icon"><img src="/icons/linkdin.png" alt="Chat Icon" /></div>
+    <div class="icon"><img src="../icons/linkdin.png" alt="Chat Icon" /></div>
     <h2>Linkdin</h2>
     <p>Reach out and we'll explore all opportunities.</p>
     <a href="#" class="talk-btn">Talk To Us</a>
@@ -62,7 +99,7 @@
 <section class="contact-form-section">
   <div class="form-container">
     <div class="form-left">
-      <h4>/Leave A Message</h4>
+      <h4>Leave A Message</h4>
       <h1>Get In <span>Touch</span> Today</h1>
       <form>
         <div class="input-row">
@@ -97,7 +134,7 @@
     </div>
 
     <div class="form-right">
-      <img src="/icons/ai.jpg" alt="AI Contact Image" />
+      <img src="../icons/ai.jpg" alt="AI Contact Image" />
     </div>
   </div>
 </section>
@@ -117,6 +154,6 @@
     });
   </script>
 
-  
+  <script src="../js/header.js"></script>
 </body>
 </html>
