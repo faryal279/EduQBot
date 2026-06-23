@@ -17,8 +17,14 @@
       font-size: 18px;
     }
     .logout-btn {
-      background-color: #ff4444;
-    }
+    background-color: #ff6b6b;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
     .logout-btn:hover {
       background-color: #cc3333;
     }
@@ -35,6 +41,47 @@
     .login-btn:hover {
       background-color: #9333ea;
     }
+
+    /* Form feedback styles */
+    .form-message {
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      display: none;
+    }
+
+    .form-message.success {
+      background-color: rgba(0, 255, 0, 0.1);
+      color: #00c853;
+      border: 1px solid #00c853;
+    }
+
+    .form-message.error {
+      background-color: rgba(255, 0, 0, 0.1);
+      color: #ff5252;
+      border: 1px solid #ff5252;
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      margin-left: 10px;
+      display: none;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -45,7 +92,7 @@
         <img src="../icons/owl.webp" alt="">
       </div>
       <nav class="navbar">
-        <a href="../index.html">Home</a>
+        <a href="../index.php">Home</a>
         <a href="../pages/aboutus.html">About Us</a>
         <a href="../pages/faq.html">FAQ</a>
         <a href="../pages/contact.html" class="active">Contact Us</a>
@@ -75,19 +122,19 @@
       <div class="icon"><img src="../icons/whatsapp.png" alt="Partnership Icon" /></div>
       <h2>Whatsapp</h2>
       <p>Reach out and we'll explore all opportunities.</p>
-      <a href="#" class="talk-btn">Talk To Us</a>
+      <a href="https://chat.whatsapp.com/HE11GuhWtGi63g5EUzuUPT" class="talk-btn">Talk To Us</a>
     </div>
   <div class="contact-card">
     <div class="icon"><img src="../icons/instagram.png" alt="Sales Icon" /></div>
     <h2>Instagram</h2>
     <p>Reach out and we'll explore all opportunities.</p>
-    <a href="#" class="talk-btn">Talk To Us</a>
+    <a href="https://www.instagram.com/syed_.sarim_?igsh=MWRrc2RmZWR6MGs0Nw%3D%3D&utm_source=qr" class="talk-btn">Talk To Us</a>
   </div>
   <div class="contact-card">
     <div class="icon"><img src="../icons/linkdin.png" alt="Chat Icon" /></div>
     <h2>Linkdin</h2>
     <p>Reach out and we'll explore all opportunities.</p>
-    <a href="#" class="talk-btn">Talk To Us</a>
+    <a href="http://www.linkedin.com/in/syeda-arwa-ahmad-b567b7246" class="talk-btn">Talk To Us</a>
   </div>
 </section>
 
@@ -101,35 +148,39 @@
     <div class="form-left">
       <h4>Leave A Message</h4>
       <h1>Get In <span>Touch</span> Today</h1>
-      <form>
+      <div id="formMessage" class="form-message"></div>
+      <form id="contactForm" onsubmit="submitForm(event)">
         <div class="input-row">
           <div class="input-group">
-            <label>Name</label>
-            <input type="text" placeholder="John Carter" />
+            <label>Name *</label>
+            <input type="text" name="name" placeholder="Abdullah" required />
           </div>
           <div class="input-group">
-            <label>Email</label>
-            <input type="email" placeholder="example@email.com" />
+            <label>Email *</label>
+            <input type="email" name="email" placeholder="example@email.com" required />
           </div>
         </div>
 
         <div class="input-row">
           <div class="input-group">
             <label>Phone</label>
-            <input type="text" placeholder="(123) 456 - 789" />
+            <input type="tel" name="phone" placeholder="03123456789" />
           </div>
           <div class="input-group">
-            <label>Company</label>
-            <input type="text" placeholder="Ex. Facebook" />
+            <label>How you found us?</label>
+            <input type="text" name="found_through" placeholder="Ie. Facebook" />
           </div>
         </div>
 
         <div class="input-group full-width">
-          <label>Message</label>
-          <textarea placeholder="Message"></textarea>
+          <label>Message *</label>
+          <textarea name="message" placeholder="Message" required></textarea>
         </div>
 
-        <button class="submit-btn" type="submit">Send Message</button>
+        <button class="submit-btn" type="submit">
+          Send Message
+          <span class="loading" id="submitLoading"></span>
+        </button>
       </form>
     </div>
 
@@ -152,6 +203,49 @@
       const y = ((e.clientY - rect.top) / rect.height - 0.5) * -30;
       bg.style.transform = `translate(${x}px, ${y}px)`;
     });
+  </script>
+
+  <script>
+    // Form submission
+    async function submitForm(event) {
+        event.preventDefault();
+        
+        const form = event.target;
+        const submitBtn = form.querySelector('.submit-btn');
+        const loading = document.getElementById('submitLoading');
+        const messageDiv = document.getElementById('formMessage');
+
+        // Disable submit button and show loading
+        submitBtn.disabled = true;
+        loading.style.display = 'inline-block';
+        messageDiv.style.display = 'none';
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch('send_contact.php', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            
+            messageDiv.textContent = result.message;
+            messageDiv.className = 'form-message ' + (result.success ? 'success' : 'error');
+            messageDiv.style.display = 'block';
+
+            if (result.success) {
+                form.reset();
+            }
+        } catch (error) {
+            messageDiv.textContent = 'An error occurred. Please try again later.';
+            messageDiv.className = 'form-message error';
+            messageDiv.style.display = 'block';
+        } finally {
+            // Re-enable submit button and hide loading
+            submitBtn.disabled = false;
+            loading.style.display = 'none';
+        }
+    }
   </script>
 
   <script src="../js/header.js"></script>

@@ -1,0 +1,430 @@
+[2025-06-06 08:23:18] API call started
+[2025-06-06 08:23:18] Raw data: {"message":"Dogs are loyal and friendly animals that have been companions to humans for thousands of years. Known for their intelligence and playful nature, dogs come in many breeds, each with its own unique traits and personalities. They are often used as service animals, guard dogs, or simply kept as beloved pets. Dogs enjoy regular exercise, affection, and social interaction, making them excellent additions to families. Their strong sense of smell and hearing also makes them valuable in search-and-rescue operations and law enforcement work."}
+[2025-06-06 08:23:18] Message received: Dogs are loyal and friendly animals that have been companions to humans for thousands of years. Known for their intelligence and playful nature, dogs come in many breeds, each with its own unique traits and personalities. They are often used as service animals, guard dogs, or simply kept as beloved pets. Dogs enjoy regular exercise, affection, and social interaction, making them excellent additions to families. Their strong sense of smell and hearing also makes them valuable in search-and-rescue operations and law enforcement work.
+[2025-06-06 08:23:21] Attempt 1 response code: 200
+[2025-06-06 08:23:21] Verbose log: *   Trying 192.178.24.170:443...
+* Connected to generativelanguage.googleapis.com (192.178.24.170) port 443
+* ALPN: curl offers h2,http/1.1
+*  CAfile: C:\xampp\apache\bin\curl-ca-bundle.crt
+*  CApath: none
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN: server accepted h2
+* Server certificate:
+*  subject: CN=upload.video.google.com
+*  start date: May 12 08:44:01 2025 GMT
+*  expire date: Aug  4 08:44:00 2025 GMT
+*  subjectAltName: host "generativelanguage.googleapis.com" matched cert's "*.googleapis.com"
+*  issuer: C=US; O=Google Trust Services; CN=WR2
+*  SSL certificate verify ok.
+* using HTTP/2
+* [HTTP/2] [1] OPENED stream for https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU
+* [HTTP/2] [1] [:method: POST]
+* [HTTP/2] [1] [:scheme: https]
+* [HTTP/2] [1] [:authority: generativelanguage.googleapis.com]
+* [HTTP/2] [1] [:path: /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU]
+* [HTTP/2] [1] [accept: */*]
+* [HTTP/2] [1] [content-type: application/json]
+* [HTTP/2] [1] [content-length: 907]
+> POST /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU HTTP/2
+Host: generativelanguage.googleapis.com
+Accept: */*
+Content-Type: application/json
+Content-Length: 907
+
+* old SSL session ID is stale, removing
+< HTTP/2 200 
+< content-type: application/json; charset=UTF-8
+< vary: X-Origin
+< vary: Referer
+< vary: Origin,Accept-Encoding
+< date: Fri, 06 Jun 2025 06:23:21 GMT
+< server: scaffolding on HTTPServer2
+< x-xss-protection: 0
+< x-frame-options: SAMEORIGIN
+< x-content-type-options: nosniff
+< server-timing: gfet4t7; dur=2378
+< alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< accept-ranges: none
+< 
+* Connection #0 to host generativelanguage.googleapis.com left intact
+
+[2025-06-06 08:23:21] Success! Response: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Okay, I understand. I will read the text you provide and generate relevant comprehension questions in JSON format under the heading \"Questions.\"\n\nHere is the JSON output based on the paragraph you provided:\n\n```json\n{\n  \"Questions\": [\n    {\n      \"question\": \"What are two characteristics commonly associated with dogs?\",\n      \"answer\": \"Loyalty and friendliness\"\n    },\n    {\n      \"question\": \"For how long have dogs been companions to humans?\",\n      \"answer\": \"Thousands of years\"\n    },\n    {\n      \"question\": \"What are some ways dogs are utilized by humans?\",\n      \"answer\": \"Service animals, guard dogs, and pets\"\n    },\n    {\n      \"question\": \"What are three things that dogs enjoy?\",\n      \"answer\": \"Regular exercise, affection, and social interaction\"\n    },\n    {\n      \"question\": \"Besides companionship, in what fields are dogs' senses helpful?\",\n      \"answer\": \"Search-and-rescue operations and law enforcement work\"\n    }\n  ]\n}\n```\n\nI'm ready for your next text! Just paste it in.\n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.14705445010020551
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 163,
+    "candidatesTokenCount": 249,
+    "totalTokenCount": 412,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 163
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 249
+      }
+    ]
+  },
+  "modelVersion": "gemini-2.0-flash",
+  "responseId": "WIlCaOicAvbsx_AP1L3CoAM"
+}
+
+[2025-06-06 08:24:41] API call started
+[2025-06-06 08:24:41] Raw data: {"message":"<!DOCTYPE html> <html lang=\"en\"> <head> <meta charset=\"UTF-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /> <title>Chatbot | Question Generator</title> <link rel=\"stylesheet\" href=\"chatbot.css\"> <style> .user-info { display: flex; align-items: center; gap: 20px; } .username { color: #a855f7; font-weight: 600; font-size: 18px; } .logout-btn { background-color: #ff4444; } .logout-btn:hover { background-color: #cc3333; } .auth-buttons { display: none; } .auth-buttons.show { display: flex; gap: 20px; } .login-btn { background-color: #a855f7; } .login-btn:hover { background-color: #9333ea; } .loading { display: none; text-align: center; margin: 20px 0; color: #a855f7; font-size: 16px; } .loading::after { content: \"Generating questions...\"; animation: dots 1.5s infinite; } @keyframes dots { 0%, 20% { content: \"Generating questions.\"; } 40% { content: \"Generating questions..\"; } 60% { content: \"Generating questions...\"; } 80% { content: \"Generating questions....\"; } 100% { content: \"Generating questions.....\"; } } .error-message { color: #ff4444; text-align: center; margin: 10px 0; display: none; } .output-box { padding: 24px; margin-top: 20px; min-height: 100px; } .output-box .placeholder-text { color: #666; text-align: center; font-style: italic; padding: 20px 0; } .question-item { color: #fff; font-size: 16px; line-height: 1.5; margin-bottom: 10px; padding: 5px 0; } .question-item:last-child { margin-bottom: 0; } .question-number { background: #a855f7; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; } .question-content { flex-grow: 1; } .question-type { font-size: 0.75em; color: #a855f7; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; } .question-text { font-size: 1.1em; color: #fff; line-height: 1.5; } .options-list { list-style: none; padding-left: 20px; } .option-item { margin: 5px 0; color: #555; } </style> </head> <body> <!-- Header --> <header class=\"header\"> <div class=\"nav-container\"> <div class=\"logo\"> <img src=\"../icons/owl.webp\" alt=\"\"> </div> <nav class=\"navbar\"> <a href=\"../index.html\">Home</a> <a href=\"../pages/aboutus.html\">About Us</a> <a href=\"../pages/faq.html\">FAQ</a> <a href=\"../pages/contact.html\">Contact Us</a> </nav> <div class=\"user-info\" style=\"display: none;\"> <span id=\"userFirstName\" class=\"username\">Welcome, </span> <a href=\"logout.php\" class=\"demo-btn logout-btn\">Logout</a> </div> <div class=\"auth-buttons\"> <a href=\"login.php\" class=\"demo-btn login-btn\">Login</a> <a href=\"signup.html\" class=\"demo-btn\">Sign Up</a> </div> </div> </header> <!-- Parallax Background Section --> <section class=\"parallax-section\"> <div class=\"parallax-bg\"></div> <div class=\"parallax-overlay-text\"> <h1>ChatBot</h1> </div> </section> <!-- Question Generator Section --> <section class=\"generator-section\"> <div class=\"generator-header\"> <h2>AI Question Generator</h2> <a href=\"history.php\" class=\"history-btn\">History</a> </div> <div class=\"generator-container\"> <textarea id=\"userInput\" placeholder=\"Enter your text here...\"></textarea> <div class=\"action-buttons\"> <button id=\"generateBtn\">Generate Questions</button> <button id=\"downloadBtn\" disabled>Download Response</button> </div> <div class=\"loading\" id=\"loadingIndicator\"></div> <div class=\"error-message\" id=\"errorMessage\"></div> <div id=\"questionsContainer\" class=\"output-box\"> <p class=\"placeholder-text\">Generated questions will appear here...</p> </div> </div> </section> <!-- Parallax JS --> <script> const section = document.querySelector('.parallax-section'); const bg = section.querySelector('.parallax-bg'); section.addEventListener('mousemove', (e) => { const rect = section.getBoundingClientRect(); const x = ((e.clientX - rect.left) / rect.width - 0.5) * -30; const y = ((e.clientY - rect.top) / rect.height - 0.5) * -30; bg.style.transform = `translate(${x}px, ${y}px)`; }); // Faq section list document.querySelectorAll('.faq-question').forEach(btn => { btn.addEventListener('click', () => { const answer = btn.nextElementSibling; const isVisible = answer.classList.contains('show'); // Close all document.querySelectorAll('.faq-answer').forEach(ans => { ans.classList.remove('show'); ans.previousElementSibling.classList.remove('active'); }); // Open clicked if (!isVisible) { answer.classList.add('show'); btn.classList.add('active'); } }); }); document.getElementById('generateBtn').addEventListener('click', () => { const input = document.getElementById('userInput').value.trim(); const outputBox = document.getElementById('questionsContainer'); const loading = document.getElementById('loadingIndicator'); const error = document.getElementById('errorMessage'); const downloadBtn = document.getElementById('downloadBtn'); outputBox.innerHTML = ''; error.style.display = 'none'; loading.style.display = 'block'; downloadBtn.disabled = true; fetch('chat_api.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: input }) }) .then(res => res.json()) .then(data => { loading.style.display = 'none'; if (data.error) { error.textContent = data.error; error.style.display = 'block'; return; } if (data.response) { try { const questions = JSON.parse(data.response); if (questions && questions.Questions && Array.isArray(questions.Questions)) { outputBox.innerHTML = ''; questions.Questions.forEach((q, i) => { // Extract the question text from the object const questionText = (typeof q === 'object' && q !== null && q.question) ? q.question : (typeof q === 'string' ? q : JSON.stringify(q)); outputBox.innerHTML += ` <div class=\"question-item\"> <div class=\"question-number\">${i + 1}</div> <div class=\"question-content\"> <div class=\"question-type\">Question</div> <div class=\"question-text\">${questionText}</div> </div> </div> `; }); // Save to database fetch('save_question.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ input_text: input, questions: data.response }) }) .catch(err => console.error('Failed to save history:', err)); downloadBtn.disabled = false; downloadBtn.onclick = () => { const blob = new Blob([JSON.stringify(questions, null, 2)], { type: \"application/json\" }); const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = \"questions.json\"; link.click(); }; } else { outputBox.innerHTML = `<div class=\"question-text\">${data.response}</div>`; } } catch (e) { outputBox.innerHTML = `<div class=\"question-text\">${data.response}</div>`; } } else { outputBox.innerHTML = '<p class=\"placeholder-text\">No questions generated.</p>'; } }) .catch(err => { loading.style.display = 'none'; error.textContent = 'Error contacting server.'; error.style.display = 'block'; }); }); </script> <script src=\"../js/header.js\"></script> </body> </html>"}
+[2025-06-06 08:24:41] Message received: <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>Chatbot | Question Generator</title> <link rel="stylesheet" href="chatbot.css"> <style> .user-info { display: flex; align-items: center; gap: 20px; } .username { color: #a855f7; font-weight: 600; font-size: 18px; } .logout-btn { background-color: #ff4444; } .logout-btn:hover { background-color: #cc3333; } .auth-buttons { display: none; } .auth-buttons.show { display: flex; gap: 20px; } .login-btn { background-color: #a855f7; } .login-btn:hover { background-color: #9333ea; } .loading { display: none; text-align: center; margin: 20px 0; color: #a855f7; font-size: 16px; } .loading::after { content: "Generating questions..."; animation: dots 1.5s infinite; } @keyframes dots { 0%, 20% { content: "Generating questions."; } 40% { content: "Generating questions.."; } 60% { content: "Generating questions..."; } 80% { content: "Generating questions...."; } 100% { content: "Generating questions....."; } } .error-message { color: #ff4444; text-align: center; margin: 10px 0; display: none; } .output-box { padding: 24px; margin-top: 20px; min-height: 100px; } .output-box .placeholder-text { color: #666; text-align: center; font-style: italic; padding: 20px 0; } .question-item { color: #fff; font-size: 16px; line-height: 1.5; margin-bottom: 10px; padding: 5px 0; } .question-item:last-child { margin-bottom: 0; } .question-number { background: #a855f7; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0; } .question-content { flex-grow: 1; } .question-type { font-size: 0.75em; color: #a855f7; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 600; } .question-text { font-size: 1.1em; color: #fff; line-height: 1.5; } .options-list { list-style: none; padding-left: 20px; } .option-item { margin: 5px 0; color: #555; } </style> </head> <body> <!-- Header --> <header class="header"> <div class="nav-container"> <div class="logo"> <img src="../icons/owl.webp" alt=""> </div> <nav class="navbar"> <a href="../index.html">Home</a> <a href="../pages/aboutus.html">About Us</a> <a href="../pages/faq.html">FAQ</a> <a href="../pages/contact.html">Contact Us</a> </nav> <div class="user-info" style="display: none;"> <span id="userFirstName" class="username">Welcome, </span> <a href="logout.php" class="demo-btn logout-btn">Logout</a> </div> <div class="auth-buttons"> <a href="login.php" class="demo-btn login-btn">Login</a> <a href="signup.html" class="demo-btn">Sign Up</a> </div> </div> </header> <!-- Parallax Background Section --> <section class="parallax-section"> <div class="parallax-bg"></div> <div class="parallax-overlay-text"> <h1>ChatBot</h1> </div> </section> <!-- Question Generator Section --> <section class="generator-section"> <div class="generator-header"> <h2>AI Question Generator</h2> <a href="history.php" class="history-btn">History</a> </div> <div class="generator-container"> <textarea id="userInput" placeholder="Enter your text here..."></textarea> <div class="action-buttons"> <button id="generateBtn">Generate Questions</button> <button id="downloadBtn" disabled>Download Response</button> </div> <div class="loading" id="loadingIndicator"></div> <div class="error-message" id="errorMessage"></div> <div id="questionsContainer" class="output-box"> <p class="placeholder-text">Generated questions will appear here...</p> </div> </div> </section> <!-- Parallax JS --> <script> const section = document.querySelector('.parallax-section'); const bg = section.querySelector('.parallax-bg'); section.addEventListener('mousemove', (e) => { const rect = section.getBoundingClientRect(); const x = ((e.clientX - rect.left) / rect.width - 0.5) * -30; const y = ((e.clientY - rect.top) / rect.height - 0.5) * -30; bg.style.transform = `translate(${x}px, ${y}px)`; }); // Faq section list document.querySelectorAll('.faq-question').forEach(btn => { btn.addEventListener('click', () => { const answer = btn.nextElementSibling; const isVisible = answer.classList.contains('show'); // Close all document.querySelectorAll('.faq-answer').forEach(ans => { ans.classList.remove('show'); ans.previousElementSibling.classList.remove('active'); }); // Open clicked if (!isVisible) { answer.classList.add('show'); btn.classList.add('active'); } }); }); document.getElementById('generateBtn').addEventListener('click', () => { const input = document.getElementById('userInput').value.trim(); const outputBox = document.getElementById('questionsContainer'); const loading = document.getElementById('loadingIndicator'); const error = document.getElementById('errorMessage'); const downloadBtn = document.getElementById('downloadBtn'); outputBox.innerHTML = ''; error.style.display = 'none'; loading.style.display = 'block'; downloadBtn.disabled = true; fetch('chat_api.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message: input }) }) .then(res => res.json()) .then(data => { loading.style.display = 'none'; if (data.error) { error.textContent = data.error; error.style.display = 'block'; return; } if (data.response) { try { const questions = JSON.parse(data.response); if (questions && questions.Questions && Array.isArray(questions.Questions)) { outputBox.innerHTML = ''; questions.Questions.forEach((q, i) => { // Extract the question text from the object const questionText = (typeof q === 'object' && q !== null && q.question) ? q.question : (typeof q === 'string' ? q : JSON.stringify(q)); outputBox.innerHTML += ` <div class="question-item"> <div class="question-number">${i + 1}</div> <div class="question-content"> <div class="question-type">Question</div> <div class="question-text">${questionText}</div> </div> </div> `; }); // Save to database fetch('save_question.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ input_text: input, questions: data.response }) }) .catch(err => console.error('Failed to save history:', err)); downloadBtn.disabled = false; downloadBtn.onclick = () => { const blob = new Blob([JSON.stringify(questions, null, 2)], { type: "application/json" }); const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = "questions.json"; link.click(); }; } else { outputBox.innerHTML = `<div class="question-text">${data.response}</div>`; } } catch (e) { outputBox.innerHTML = `<div class="question-text">${data.response}</div>`; } } else { outputBox.innerHTML = '<p class="placeholder-text">No questions generated.</p>'; } }) .catch(err => { loading.style.display = 'none'; error.textContent = 'Error contacting server.'; error.style.display = 'block'; }); }); </script> <script src="../js/header.js"></script> </body> </html>
+[2025-06-06 08:24:46] Attempt 1 response code: 200
+[2025-06-06 08:24:46] Verbose log: *   Trying 142.250.181.170:443...
+* Connected to generativelanguage.googleapis.com (142.250.181.170) port 443
+* ALPN: curl offers h2,http/1.1
+*  CAfile: C:\xampp\apache\bin\curl-ca-bundle.crt
+*  CApath: none
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN: server accepted h2
+* Server certificate:
+*  subject: CN=upload.video.google.com
+*  start date: May 12 08:44:01 2025 GMT
+*  expire date: Aug  4 08:44:00 2025 GMT
+*  subjectAltName: host "generativelanguage.googleapis.com" matched cert's "*.googleapis.com"
+*  issuer: C=US; O=Google Trust Services; CN=WR2
+*  SSL certificate verify ok.
+* using HTTP/2
+* [HTTP/2] [1] OPENED stream for https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU
+* [HTTP/2] [1] [:method: POST]
+* [HTTP/2] [1] [:scheme: https]
+* [HTTP/2] [1] [:authority: generativelanguage.googleapis.com]
+* [HTTP/2] [1] [:path: /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU]
+* [HTTP/2] [1] [accept: */*]
+* [HTTP/2] [1] [content-type: application/json]
+* [HTTP/2] [1] [content-length: 7455]
+> POST /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU HTTP/2
+Host: generativelanguage.googleapis.com
+Accept: */*
+Content-Type: application/json
+Content-Length: 7455
+
+* old SSL session ID is stale, removing
+< HTTP/2 200 
+< content-type: application/json; charset=UTF-8
+< vary: X-Origin
+< vary: Referer
+< vary: Origin,Accept-Encoding
+< date: Fri, 06 Jun 2025 06:24:46 GMT
+< server: scaffolding on HTTPServer2
+< x-xss-protection: 0
+< x-frame-options: SAMEORIGIN
+< x-content-type-options: nosniff
+< server-timing: gfet4t7; dur=3322
+< alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< accept-ranges: none
+< 
+* Connection #0 to host generativelanguage.googleapis.com left intact
+
+[2025-06-06 08:24:46] Success! Response: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "```json\n{\n  \"Questions\": [\n    {\n      \"question\": \"What is the main purpose of the web page, as indicated by the title meta tag?\",\n      \"type\": \"comprehension\"\n    },\n    {\n      \"question\": \"What CSS property is used to make the background image of the `.parallax-bg` element appear to move slower than the foreground content?\",\n      \"type\": \"technical\"\n    },\n    {\n      \"question\": \"What is the purpose of the `loadingIndicator` element, and when is it displayed?\",\n      \"type\": \"functional\"\n    },\n    {\n      \"question\": \"How does the JavaScript code handle potential errors received from the 'chat_api.php' endpoint?\",\n      \"type\": \"technical\"\n    },\n    {\n      \"question\": \"What is the functionality of the \\\"Generate Questions\\\" button, and what steps does it perform when clicked?\",\n      \"type\": \"functional\"\n    },\n    {\n      \"question\": \"Where does the application send data to generate Questions?\",\n      \"type\": \"technical\"\n    },\n    {\n      \"question\": \"What method is used to save questions, and what does it contain?\",\n      \"type\": \"technical\"\n    },\n    {\n      \"question\": \"What are the navigation links?\",\n      \"type\": \"comprehension\"\n    },\n     {\n      \"question\": \"What is the javascript code responsible for?\",\n      \"type\": \"comprehension\"\n    }\n  ]\n}\n```"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.34079706738566795
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 2123,
+    "candidatesTokenCount": 342,
+    "totalTokenCount": 2465,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2123
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 342
+      }
+    ]
+  },
+  "modelVersion": "gemini-2.0-flash",
+  "responseId": "q4lCaNf8J-mFsbQPmeSToAU"
+}
+
+[2025-06-06 08:25:56] API call started
+[2025-06-06 08:25:56] Raw data: {"message":"Dogs are loyal and friendly animals that have been companions to humans for thousands of years. Known for their intelligence and playful nature, dogs come in many breeds, each with its own unique traits and personalities. They are often used as service animals, guard dogs, or simply kept as beloved pets. Dogs enjoy regular exercise, affection, and social interaction, making them excellent additions to families. Their strong sense of smell and hearing also makes them valuable in search-and-rescue operations and law enforcement work.Dogs are loyal and friendly animals that have been companions to humans for thousands of years. Known for their intelligence and playful nature, dogs come in many breeds, each with its own unique traits and personalities. They are often used as service animals, guard dogs, or simply kept as beloved pets. Dogs enjoy regular exercise, affection, and social interaction, making them excellent additions to families. Their strong sense of smell and hearing also makes them valuable in search-and-rescue operations and law enforcement work."}
+[2025-06-06 08:25:56] Message received: Dogs are loyal and friendly animals that have been companions to humans for thousands of years. Known for their intelligence and playful nature, dogs come in many breeds, each with its own unique traits and personalities. They are often used as service animals, guard dogs, or simply kept as beloved pets. Dogs enjoy regular exercise, affection, and social interaction, making them excellent additions to families. Their strong sense of smell and hearing also makes them valuable in search-and-rescue operations and law enforcement work.Dogs are loyal and friendly animals that have been companions to humans for thousands of years. Known for their intelligence and playful nature, dogs come in many breeds, each with its own unique traits and personalities. They are often used as service animals, guard dogs, or simply kept as beloved pets. Dogs enjoy regular exercise, affection, and social interaction, making them excellent additions to families. Their strong sense of smell and hearing also makes them valuable in search-and-rescue operations and law enforcement work.
+[2025-06-06 08:25:59] Attempt 1 response code: 200
+[2025-06-06 08:25:59] Verbose log: *   Trying 142.250.181.170:443...
+* Connected to generativelanguage.googleapis.com (142.250.181.170) port 443
+* ALPN: curl offers h2,http/1.1
+*  CAfile: C:\xampp\apache\bin\curl-ca-bundle.crt
+*  CApath: none
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN: server accepted h2
+* Server certificate:
+*  subject: CN=upload.video.google.com
+*  start date: May 12 08:44:01 2025 GMT
+*  expire date: Aug  4 08:44:00 2025 GMT
+*  subjectAltName: host "generativelanguage.googleapis.com" matched cert's "*.googleapis.com"
+*  issuer: C=US; O=Google Trust Services; CN=WR2
+*  SSL certificate verify ok.
+* using HTTP/2
+* [HTTP/2] [1] OPENED stream for https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU
+* [HTTP/2] [1] [:method: POST]
+* [HTTP/2] [1] [:scheme: https]
+* [HTTP/2] [1] [:authority: generativelanguage.googleapis.com]
+* [HTTP/2] [1] [:path: /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU]
+* [HTTP/2] [1] [accept: */*]
+* [HTTP/2] [1] [content-type: application/json]
+* [HTTP/2] [1] [content-length: 1444]
+> POST /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU HTTP/2
+Host: generativelanguage.googleapis.com
+Accept: */*
+Content-Type: application/json
+Content-Length: 1444
+
+* old SSL session ID is stale, removing
+< HTTP/2 200 
+< content-type: application/json; charset=UTF-8
+< vary: X-Origin
+< vary: Referer
+< vary: Origin,Accept-Encoding
+< date: Fri, 06 Jun 2025 06:25:59 GMT
+< server: scaffolding on HTTPServer2
+< x-xss-protection: 0
+< x-frame-options: SAMEORIGIN
+< x-content-type-options: nosniff
+< server-timing: gfet4t7; dur=2241
+< alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< accept-ranges: none
+< 
+* Connection #0 to host generativelanguage.googleapis.com left intact
+
+[2025-06-06 08:25:59] Success! Response: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "```json\n{\n  \"Questions\": [\n    {\n      \"question\": \"What are two characteristics commonly associated with dogs?\",\n      \"answer\": \"Loyalty and friendliness\"\n    },\n    {\n      \"question\": \"For how long have dogs been companions to humans?\",\n      \"answer\": \"Thousands of years\"\n    },\n    {\n      \"question\": \"Name three roles that dogs often fulfill.\",\n      \"answer\": \"Service animals, guard dogs, beloved pets\"\n    },\n    {\n      \"question\": \"What are some things that dogs enjoy?\",\n      \"answer\": \"Regular exercise, affection, social interaction\"\n    },\n    {\n      \"question\": \"How do dogs' senses of smell and hearing contribute to their usefulness?\",\n      \"answer\": \"Valuable in search-and-rescue operations and law enforcement work\"\n    },\n    {\n      \"question\": \"What makes each dog breed unique?\",\n      \"answer\": \"Each breed has its own unique traits and personalities.\"\n    }\n  ]\n}\n```\n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.076166301578670353
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 262,
+    "candidatesTokenCount": 231,
+    "totalTokenCount": 493,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 262
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 231
+      }
+    ]
+  },
+  "modelVersion": "gemini-2.0-flash",
+  "responseId": "9YlCaK6tMK-R1PIPn56f8QM"
+}
+
+[2025-06-06 08:26:19] API call started
+[2025-06-06 08:26:19] Raw data: {"message":"Dogs are loyal and friendly animals that have been companions to humans for thousands of years. Known for their intelligence and playful nature, dogs come in many breeds, each with its own unique traits and personalities. They are often used as service animals, guard dogs, or simply kept as beloved pets. Dogs enjoy regular exercise, affection, and social interaction, making them excellent additions to families. Their strong sense of smell and hearing also makes them valuable in search-and-rescue operations and law enforcement work.Dogs are loyal and friendly animals that have been companions to humans for thousands of years. Known for their intelligence and playful nature, dogs come in many breeds, each with its own unique traits and personalities. They are often used as service animals, guard dogs, or simply kept as beloved pets. Dogs enjoy regular exercise, affection, and social interaction, making them excellent additions to families. Their strong sense of smell and hearing also makes them valuable in search-and-rescue operations and law enforcement work. give me 10 question"}
+[2025-06-06 08:26:19] Message received: Dogs are loyal and friendly animals that have been companions to humans for thousands of years. Known for their intelligence and playful nature, dogs come in many breeds, each with its own unique traits and personalities. They are often used as service animals, guard dogs, or simply kept as beloved pets. Dogs enjoy regular exercise, affection, and social interaction, making them excellent additions to families. Their strong sense of smell and hearing also makes them valuable in search-and-rescue operations and law enforcement work.Dogs are loyal and friendly animals that have been companions to humans for thousands of years. Known for their intelligence and playful nature, dogs come in many breeds, each with its own unique traits and personalities. They are often used as service animals, guard dogs, or simply kept as beloved pets. Dogs enjoy regular exercise, affection, and social interaction, making them excellent additions to families. Their strong sense of smell and hearing also makes them valuable in search-and-rescue operations and law enforcement work. give me 10 question
+[2025-06-06 08:26:23] Attempt 1 response code: 200
+[2025-06-06 08:26:23] Verbose log: *   Trying 142.250.181.170:443...
+* Connected to generativelanguage.googleapis.com (142.250.181.170) port 443
+* ALPN: curl offers h2,http/1.1
+*  CAfile: C:\xampp\apache\bin\curl-ca-bundle.crt
+*  CApath: none
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN: server accepted h2
+* Server certificate:
+*  subject: CN=upload.video.google.com
+*  start date: May 12 08:44:01 2025 GMT
+*  expire date: Aug  4 08:44:00 2025 GMT
+*  subjectAltName: host "generativelanguage.googleapis.com" matched cert's "*.googleapis.com"
+*  issuer: C=US; O=Google Trust Services; CN=WR2
+*  SSL certificate verify ok.
+* using HTTP/2
+* [HTTP/2] [1] OPENED stream for https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU
+* [HTTP/2] [1] [:method: POST]
+* [HTTP/2] [1] [:scheme: https]
+* [HTTP/2] [1] [:authority: generativelanguage.googleapis.com]
+* [HTTP/2] [1] [:path: /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU]
+* [HTTP/2] [1] [accept: */*]
+* [HTTP/2] [1] [content-type: application/json]
+* [HTTP/2] [1] [content-length: 1464]
+> POST /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU HTTP/2
+Host: generativelanguage.googleapis.com
+Accept: */*
+Content-Type: application/json
+Content-Length: 1464
+
+* old SSL session ID is stale, removing
+< HTTP/2 200 
+< content-type: application/json; charset=UTF-8
+< vary: X-Origin
+< vary: Referer
+< vary: Origin,Accept-Encoding
+< date: Fri, 06 Jun 2025 06:26:23 GMT
+< server: scaffolding on HTTPServer2
+< x-xss-protection: 0
+< x-frame-options: SAMEORIGIN
+< x-content-type-options: nosniff
+< server-timing: gfet4t7; dur=3308
+< alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< accept-ranges: none
+< 
+* Connection #0 to host generativelanguage.googleapis.com left intact
+
+[2025-06-06 08:26:23] Success! Response: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "```json\n{\n  \"Questions\": [\n    {\n      \"Q1\": \"What are two common traits associated with dogs, according to the text?\",\n      \"Answer\": \"Loyalty and friendliness\"\n    },\n    {\n      \"Q2\": \"For how long have dogs been companions to humans, as mentioned in the passage?\",\n      \"Answer\": \"Thousands of years\"\n    },\n    {\n      \"Q3\": \"Besides being pets, what other roles do dogs often fulfill?\",\n      \"Answer\": \"Service animals and guard dogs\"\n    },\n    {\n      \"Q4\": \"What are three things that dogs enjoy and benefit from?\",\n      \"Answer\": \"Regular exercise, affection, and social interaction\"\n    },\n    {\n      \"Q5\": \"What qualities makes dogs valuable in search-and-rescue operations?\",\n      \"Answer\": \"Strong sense of smell and hearing\"\n    },\n    {\n      \"Q6\": \"Does the text mention that all dog breeds are the same?\",\n      \"Answer\": \"No, it states they come in many breeds with unique traits.\"\n    },\n    {\n      \"Q7\": \"In what capacity are dogs sometimes used in law enforcement?\",\n      \"Answer\": \"Law enforcement work\"\n    },\n     {\n      \"Q8\": \"What makes dogs excellent additions to families?\",\n      \"Answer\": \"Enjoy regular exercise, affection, and social interaction\"\n    },\n     {\n      \"Q9\": \"Give two examples of how a dog's physical characteristics help humans?\",\n      \"Answer\": \"Strong sense of smell and hearing\"\n    },\n    {\n      \"Q10\": \"Name three specific uses of dogs mentioned in the text.\",\n      \"Answer\": \"Service animals, guard dogs, beloved pets\"\n    }\n  ]\n}\n```\n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.23403511425056081
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 269,
+    "candidatesTokenCount": 404,
+    "totalTokenCount": 673,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 269
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 404
+      }
+    ]
+  },
+  "modelVersion": "gemini-2.0-flash",
+  "responseId": "DYpCaISJDa-R1PIPn56f8QM"
+}
+
+[2025-06-06 10:45:43] API call started
+[2025-06-06 10:45:43] Raw data: {"message":"Dogs are loyal and friendly animals that have been companions to humans for thousands of years. Known for their intelligence and playful nature, dogs come in many breeds, each with its own unique traits and personalities. They are often used as service animals, guard dogs, or simply kept as beloved pets. Dogs enjoy regular exercise, affection, and social interaction, making them excellent additions to families. Their strong sense of smell and hearing also makes them valuable in search-and-rescue operations and law enforcement work."}
+[2025-06-06 10:45:43] Message received: Dogs are loyal and friendly animals that have been companions to humans for thousands of years. Known for their intelligence and playful nature, dogs come in many breeds, each with its own unique traits and personalities. They are often used as service animals, guard dogs, or simply kept as beloved pets. Dogs enjoy regular exercise, affection, and social interaction, making them excellent additions to families. Their strong sense of smell and hearing also makes them valuable in search-and-rescue operations and law enforcement work.
+[2025-06-06 10:45:46] Attempt 1 response code: 200
+[2025-06-06 10:45:46] Verbose log: *   Trying 192.178.24.202:443...
+* Connected to generativelanguage.googleapis.com (192.178.24.202) port 443
+* ALPN: curl offers h2,http/1.1
+*  CAfile: C:\xampp\apache\bin\curl-ca-bundle.crt
+*  CApath: none
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384
+* ALPN: server accepted h2
+* Server certificate:
+*  subject: CN=upload.video.google.com
+*  start date: May 12 08:44:01 2025 GMT
+*  expire date: Aug  4 08:44:00 2025 GMT
+*  subjectAltName: host "generativelanguage.googleapis.com" matched cert's "*.googleapis.com"
+*  issuer: C=US; O=Google Trust Services; CN=WR2
+*  SSL certificate verify ok.
+* using HTTP/2
+* [HTTP/2] [1] OPENED stream for https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU
+* [HTTP/2] [1] [:method: POST]
+* [HTTP/2] [1] [:scheme: https]
+* [HTTP/2] [1] [:authority: generativelanguage.googleapis.com]
+* [HTTP/2] [1] [:path: /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU]
+* [HTTP/2] [1] [accept: */*]
+* [HTTP/2] [1] [content-type: application/json]
+* [HTTP/2] [1] [content-length: 907]
+> POST /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU HTTP/2
+Host: generativelanguage.googleapis.com
+Accept: */*
+Content-Type: application/json
+Content-Length: 907
+
+* old SSL session ID is stale, removing
+< HTTP/2 200 
+< content-type: application/json; charset=UTF-8
+< vary: X-Origin
+< vary: Referer
+< vary: Origin,Accept-Encoding
+< date: Fri, 06 Jun 2025 08:45:46 GMT
+< server: scaffolding on HTTPServer2
+< x-xss-protection: 0
+< x-frame-options: SAMEORIGIN
+< x-content-type-options: nosniff
+< server-timing: gfet4t7; dur=2384
+< alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+< accept-ranges: none
+< 
+* Connection #0 to host generativelanguage.googleapis.com left intact
+
+[2025-06-06 10:45:46] Success! Response: {
+  "candidates": [
+    {
+      "content": {
+        "parts": [
+          {
+            "text": "Okay, I understand. Please provide the paragraph, and I will generate relevant comprehension questions in JSON format.\n\nHere's the JSON output based on your provided paragraph:\n\n```json\n{\n  \"Questions\": [\n    {\n      \"question\": \"What are two common characteristics of dogs mentioned in the text?\",\n      \"answer\": [\"Loyal\", \"Friendly\"]\n    },\n    {\n      \"question\": \"For how long have dogs been companions to humans, according to the text?\",\n      \"answer\": \"Thousands of years\"\n    },\n    {\n      \"question\": \"What are three roles that dogs often fulfill?\",\n      \"answer\": [\"Service animals\", \"Guard dogs\", \"Pets\"]\n    },\n    {\n      \"question\": \"Name two things dogs enjoy, as stated in the paragraph.\",\n      \"answer\": [\"Regular exercise\", \"Affection\"]\n    },\n    {\n      \"question\": \"What senses make dogs valuable in search-and-rescue operations?\",\n      \"answer\": [\"Smell\", \"Hearing\"]\n    }\n  ]\n}\n```\n"
+          }
+        ],
+        "role": "model"
+      },
+      "finishReason": "STOP",
+      "avgLogprobs": -0.14448850915787068
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 163,
+    "candidatesTokenCount": 235,
+    "totalTokenCount": 398,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 163
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 235
+      }
+    ]
+  },
+  "modelVersion": "gemini-2.0-flash",
+  "responseId": "uKpCaODnK4D1x_AP9suVyA4"
+}
+

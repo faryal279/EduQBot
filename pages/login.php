@@ -1,5 +1,24 @@
 <?php
+// Set session cookie parameters BEFORE starting the session
+ini_set('session.cookie_path', '/');
+session_set_cookie_params([
+    'lifetime' => 0,
+    'path' => '/',
+    'domain' => '',
+    'secure' => false,
+    'httponly' => true,
+    'samesite' => 'Lax'
+]);
+
+// Now start the session
 session_start();
+
+// If user is already logged in, redirect to index
+if (isset($_SESSION['user_id'])) {
+    header("Location: ../index.php");
+    exit();
+}
+
 $error_message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -47,6 +66,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['firstname'] = $user['firstname'];
                 $_SESSION['lastname'] = $user['lastname'];
                 
+                // Handle remember me
+                if (isset($_POST['remember']) && $_POST['remember'] == 'on') {
+                    // Set cookies for 30 days
+                    setcookie('remember_user', $user['id'], time() + (86400 * 30), "/"); // 86400 = 1 day
+                    setcookie('remember_email', $user['email'], time() + (86400 * 30), "/");
+                }
+                
                 // Redirect to index.php
                 header("Location: ../index.php");
                 exit();
@@ -86,6 +112,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             text-align: center;
             font-size: 14px;
         }
+        /* Remember Me Checkbox */
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            color: #999;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #a855f7;
+            cursor: pointer;
+        }
+
+        .remember-me label {
+            font-size: 14px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .remember-me:hover {
+            color: #ddd;
+        }
     </style>
 </head>
 <body>
@@ -111,6 +162,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" id="password" name="password" required />
                     <label for="password">Password</label>
                 </div>
+
+                <!-- <div class="remember-me">
+                    <input type="checkbox" id="remember" name="remember" />
+                    <label for="remember">Remember me</label>
+                </div> -->
 
                 <button type="submit">Login</button>
 

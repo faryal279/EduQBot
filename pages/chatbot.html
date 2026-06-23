@@ -1,3 +1,14 @@
+<!--
+  Main Chatbot Interface
+  This file contains the UI for the AI-powered question generator chatbot
+  Features include:
+  - User authentication display
+  - Voice input capability
+  - File upload functionality
+  - Question generation and display
+  - History tracking
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,8 +28,14 @@
       font-size: 18px;
     }
     .logout-btn {
-      background-color: #ff4444;
-    }
+    background-color: #ff6b6b;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
     .logout-btn:hover {
       background-color: #cc3333;
     }
@@ -35,6 +52,172 @@
     .login-btn:hover {
       background-color: #9333ea;
     }
+    .loading {
+      display: none;
+      text-align: center;
+      margin: 20px 0;
+      color: #a855f7;
+      font-size: 16px;
+    }
+    .loading::after {
+      content: "Generating questions...";
+      animation: dots 1.5s infinite;
+    }
+    @keyframes dots {
+      0%, 20% { content: "Generating questions."; }
+      40% { content: "Generating questions.."; }
+      60% { content: "Generating questions..."; }
+      80% { content: "Generating questions...."; }
+      100% { content: "Generating questions....."; }
+    }
+    .error-message {
+      color: #ff4444;
+      text-align: center;
+      margin: 10px 0;
+      display: none;
+    }
+    .output-box {
+      padding: 24px;
+      margin-top: 20px;
+      min-height: 100px;
+    }
+    .output-box .placeholder-text {
+      color: #666;
+      text-align: center;
+      font-style: italic;
+      padding: 20px 0;
+    }
+    .question-item {
+      color: #fff;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      padding: 5px 0;
+    }
+    .question-item:last-child {
+      margin-bottom: 0;
+    }
+    .question-number {
+      background: #a855f7;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .question-content {
+      flex-grow: 1;
+    }
+    .question-type {
+      font-size: 0.75em;
+      color: #a855f7;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .question-text {
+      font-size: 1.1em;
+      color: #fff;
+      line-height: 1.5;
+    }
+    .options-list {
+      list-style: none;
+      padding-left: 20px;
+    }
+    .option-item {
+      margin: 5px 0;
+      color: #555;
+    }
+    .generator-container {
+      position: relative;
+    }
+
+    .voice-input-btn {
+      position: absolute;
+      right: 15px;
+      top: 190px;
+      background: brown;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+
+    }
+
+    .voice-input-btn:hover {
+      background-color: rgba(168, 85, 247, 0.1);
+    }
+
+    .voice-input-btn img {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      filter: brightness(0) invert(1);
+    }
+
+    .voice-input-btn.recording {
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .interim-text {
+      position: absolute;
+      left: 15px;
+      bottom: -25px;
+      color: #a855f7;
+      font-style: italic;
+      font-size: 14px;
+      min-height: 20px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .file-input-container {
+      position: absolute;
+      right: 60px;
+      top: 190px;
+    }
+
+    .file-input-btn {
+      background: brown;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .file-input-btn:hover {
+      background-color: #8B4513;
+    }
+
+    .file-input-btn img {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) invert(1); /* Makes the icon white */
+    }
+
+    #fileInput {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -45,7 +228,7 @@
         <img src="../icons/owl.webp" alt="">
       </div>
       <nav class="navbar">
-        <a href="../index.html">Home</a>
+        <a href="../index.php">Home</a>
         <a href="../pages/aboutus.html">About Us</a>
         <a href="../pages/faq.html">FAQ</a>
         <a href="../pages/contact.html">Contact Us</a>
@@ -75,29 +258,38 @@
 <section class="generator-section">
   <div class="generator-header">
     <h2>AI Question Generator</h2>
-    <a href="../pages/history.html" class="history-btn">History</a>
+    <a href="history.php" class="history-btn">History</a>
   </div>
 
   <div class="generator-container">
-    <textarea id="inputText" placeholder="Enter your text here..."></textarea>
+    <textarea id="userInput" placeholder="Enter your text here..."></textarea>
+    <div class="file-input-container">
+      <input type="file" id="fileInput" accept=".txt" />
+      <button class="file-input-btn" title="Import text file" onclick="document.getElementById('fileInput').click()">
+        <img src="../icons/file.svg" alt="Import File">
+      </button>
+    </div>
+    <button id="voiceInputBtn" class="voice-input-btn" title="Click to start voice input">
+      <img src="../icons/mic.svg" alt="Voice Input">
+    </button>
+    <div class="interim-text" id="interimText"></div>
     
     <div class="action-buttons">
       <button id="generateBtn">Generate Questions</button>
-      <button id="downloadBtn">Download Response</button>
+      <button id="downloadBtn" disabled>Download Response</button>
     </div>
 
-    <div id="outputContainer" class="output-box">
+    <div class="loading" id="loadingIndicator"></div>
+    <div class="error-message" id="errorMessage"></div>
+
+    <div id="questionsContainer" class="output-box">
       <p class="placeholder-text">Generated questions will appear here...</p>
     </div>
   </div>
 </section>
 
-
-
-
-
-
- 
+  <!-- Load speech.js first -->
+  <script src="../js/speech.js"></script>
 
   <!-- Parallax JS -->
   <script>
@@ -134,7 +326,230 @@
     });
   });
 
+  document.getElementById('generateBtn').addEventListener('click', () => {
+  const input = document.getElementById('userInput').value.trim();
+  const outputBox = document.getElementById('questionsContainer');
+  const loading = document.getElementById('loadingIndicator');
+  const error = document.getElementById('errorMessage');
+  const downloadBtn = document.getElementById('downloadBtn');
+
+  outputBox.innerHTML = '';
+  error.style.display = 'none';
+  loading.style.display = 'block';
+  downloadBtn.disabled = true;
+
+  fetch('./chat_api.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: input })
+  })
+  .then(res => res.json())
+  .then(data => {
+    loading.style.display = 'none';
+
+    if (data.error) {
+      error.textContent = data.error;
+      error.style.display = 'block';
+      return;
+    }
+
+    if (data.response) {
+      try {
+        const questions = JSON.parse(data.response);
+        
+        if (questions && questions.Questions && Array.isArray(questions.Questions)) {
+          outputBox.innerHTML = '';
+          questions.Questions.forEach((q, i) => {
+            // Extract the question text from the object
+            const questionText = (typeof q === 'object' && q !== null && q.question) ? q.question : (typeof q === 'string' ? q : JSON.stringify(q));
+
+            outputBox.innerHTML += `
+              <div class="question-item">
+                <div class="question-number">${i + 1}</div>
+                <div class="question-content">
+                  <div class="question-type">Question</div>
+                  <div class="question-text">${questionText}</div>
+                </div>
+              </div>
+            `;
+          });
+
+          // Save to database
+          fetch('save_question.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              input_text: input,
+              questions: data.response
+            })
+          })
+          .catch(err => console.error('Failed to save history:', err));
+
+          downloadBtn.disabled = false;
+          downloadBtn.onclick = () => {
+            const blob = new Blob([JSON.stringify(questions, null, 2)], { type: "application/json" });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = "questions.json";
+            link.click();
+          };
+        } else {
+          outputBox.innerHTML = `<div class="question-text">${data.response}</div>`;
+        }
+      } catch (e) {
+        outputBox.innerHTML = `<div class="question-text">${data.response}</div>`;
+      }
+    } else {
+      outputBox.innerHTML = '<p class="placeholder-text">No questions generated.</p>';
+    }
+  })
+  .catch(err => {
+    loading.style.display = 'none';
+    error.textContent = 'Error contacting server.';
+    error.style.display = 'block';
+  });
+});
   </script>
+
   <script src="../js/header.js"></script>
+
+  <!-- Voice Input Implementation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const voiceInputBtn = document.getElementById('voiceInputBtn');
+      const userInput = document.getElementById('userInput');
+      const interimText = document.getElementById('interimText');
+      let recognition = null;
+      let isRecording = false;
+      let finalTranscript = '';
+
+      // Check browser support
+      if (!SpeechRecognition) {
+        console.log("Speech Recognition not supported");
+        voiceInputBtn.style.display = 'none';
+        return;
+      }
+
+      // Request microphone permission
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(stream => {
+          // Stop the stream immediately - we just needed permission
+          stream.getTracks().forEach(track => track.stop());
+          setupSpeechRecognition();
+        })
+        .catch(err => {
+          console.error('Microphone permission denied:', err);
+          voiceInputBtn.style.display = 'none';
+        });
+
+      function setupSpeechRecognition() {
+        recognition = new SpeechRecognition();
+        recognition.lang = 'en-US';
+        recognition.continuous = true;
+        recognition.interimResults = true;
+
+        voiceInputBtn.addEventListener('click', toggleRecording);
+
+        recognition.onstart = () => {
+          isRecording = true;
+          voiceInputBtn.classList.add('recording');
+          voiceInputBtn.querySelector('img').src = '../icons/mic-active.svg';
+          interimText.textContent = 'Listening...';
+          console.log('Recording started');
+        };
+
+        recognition.onend = () => {
+          isRecording = false;
+          voiceInputBtn.classList.remove('recording');
+          voiceInputBtn.querySelector('img').src = '../icons/mic.svg';
+          interimText.textContent = '';
+          console.log('Recording ended');
+        };
+
+        recognition.onresult = (event) => {
+          let interimTranscript = '';
+          
+          // Process all results
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            const transcript = event.results[i][0].transcript;
+            
+            if (event.results[i].isFinal) {
+              finalTranscript += transcript + ' ';
+              // Update the input field with all final transcripts
+              userInput.value = finalTranscript.trim();
+              interimText.textContent = '';
+            } else {
+              interimTranscript = transcript;
+              // Show interim results in the interim text div
+              interimText.textContent = interimTranscript;
+            }
+          }
+        };
+
+        recognition.onerror = (event) => {
+          console.error('Speech recognition error:', event.error);
+          if (event.error === 'not-allowed') {
+            alert('Microphone access is required for voice input.');
+            voiceInputBtn.style.display = 'none';
+          }
+          isRecording = false;
+          voiceInputBtn.classList.remove('recording');
+          voiceInputBtn.querySelector('img').src = '../icons/mic.svg';
+          interimText.textContent = '';
+        };
+      }
+
+      function toggleRecording() {
+        if (!recognition) return;
+
+        if (!isRecording) {
+          try {
+            finalTranscript = userInput.value ? userInput.value + ' ' : ''; // Keep existing text
+            recognition.start();
+          } catch (err) {
+            console.error('Error starting recognition:', err);
+          }
+        } else {
+          try {
+            recognition.stop();
+          } catch (err) {
+            console.error('Error stopping recognition:', err);
+          }
+        }
+      }
+    });
+  </script>
+
+  <!-- File Import Implementation -->
+  <script>
+    document.getElementById('fileInput').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      // Check if it's a text file
+      if (file.type !== 'text/plain') {
+        alert('Please select a text (.txt) file');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const content = e.target.result;
+        document.getElementById('userInput').value = content;
+        
+        // Optional: Automatically generate questions after file is loaded
+        const generateBtn = document.getElementById('generateBtn');
+        const shouldGenerate = confirm('Would you like to generate questions from this file?');
+        if (shouldGenerate) {
+          generateBtn.click();
+        }
+      };
+      reader.onerror = function(e) {
+        alert('Error reading file: ' + e.target.error);
+      };
+      reader.readAsText(file);
+    });
+  </script>
 </body>
 </html>
