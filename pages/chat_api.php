@@ -34,7 +34,7 @@ file_put_contents($logFile, date('[Y-m-d H:i:s] ') . "Message received: " . $mes
 
 // API Endpoint Configuration
 // Set up the Gemini API endpoint with API key
-$url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' . $api_key;
+$url = 'YOUR_API_KEY_HERE'
 
 // Request Preparation
 // Format the prompt for question generation
