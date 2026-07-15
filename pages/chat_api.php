@@ -14,8 +14,9 @@ $logFile = __DIR__ . '/debug.log';
 file_put_contents($logFile, date('[Y-m-d H:i:s] ') . "API call started\n", FILE_APPEND);
 
 // API Configuration
-// Google Gemini API key for text generation
-$api_key = 'AIzaSyC52WcjldoOJk_wn8tJgUoD0jgAtcbGrqU';
+// IMPORTANT: Add your own Google Gemini API key below before running this project.
+// Get a free key at: https://aistudio.google.com/apikey
+$api_key = 'YOUR_GEMINI_API_KEY_HERE';
 
 // Get and validate POST data
 $raw_data = file_get_contents('php://input');
@@ -33,8 +34,8 @@ $message = $data['message'];
 file_put_contents($logFile, date('[Y-m-d H:i:s] ') . "Message received: " . $message . "\n", FILE_APPEND);
 
 // API Endpoint Configuration
-// Set up the Gemini API endpoint with API key
-$url = 'YOUR_API_KEY_HERE'
+// Builds the Gemini API endpoint using the key set above
+$url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' . $api_key;
 
 // Request Preparation
 // Format the prompt for question generation
@@ -84,13 +85,13 @@ while (!$success && $retryCount < $maxRetries) {
     // Make API request
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    
+
     // Log the attempt
     rewind($verbose);
     $verboseLog = stream_get_contents($verbose);
     file_put_contents($logFile, date('[Y-m-d H:i:s] ') . "Attempt " . ($retryCount + 1) . " response code: " . $httpCode . "\n", FILE_APPEND);
     file_put_contents($logFile, date('[Y-m-d H:i:s] ') . "Verbose log: " . $verboseLog . "\n", FILE_APPEND);
-    
+
     if ($httpCode === 200) {
         $success = true;
         file_put_contents($logFile, date('[Y-m-d H:i:s] ') . "Success! Response: " . $response . "\n", FILE_APPEND);
@@ -125,7 +126,7 @@ $result = json_decode($response, true);
 
 if (isset($result['candidates'][0]['content']['parts'][0]['text'])) {
     $generatedText = $result['candidates'][0]['content']['parts'][0]['text'];
-    
+
     // Try to extract JSON from the response if available
     if (preg_match('/\{.*\}/s', $generatedText, $matches)) {
         echo json_encode([
@@ -144,4 +145,4 @@ if (isset($result['candidates'][0]['content']['parts'][0]['text'])) {
     ];
     file_put_contents($logFile, date('[Y-m-d H:i:s] ') . "Response format error: " . json_encode($errorMsg) . "\n", FILE_APPEND);
     echo json_encode($errorMsg);
-} 
+}
