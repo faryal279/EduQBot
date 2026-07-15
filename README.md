@@ -89,4 +89,4 @@ This code is provided for academic and research reproducibility purposes alongsi
 
 ## Contact
 
-For questions about this repository or the associated paper, contact the corresponding author: Waqar Khan (wangkang@fzfu.edu.cn).
+For questions about this repository or the code, contact: Faryal Idrees (faryalidrees64@gmail.com).
